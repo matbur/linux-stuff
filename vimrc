@@ -72,7 +72,6 @@ set shiftround
 set expandtab
 
 " Podswietla znaleziona fraze podczas szukania i rozroznia znaki.
-" Podswietla znaleziona fraze podczas szukania i rozroznia znaki" Podswietla znaleziona fraze podczas szukania i rozroznia znaki" Podswietla znaleziona fraze podczas szukania i rozroznia znaki" Podswietla znaleziona fraze podczas szukania i rozroznia znaki" Podswietla znaleziona fraze podczas szukania i rozroznia znaki" Podswietla znaleziona fraze podczas szukania i rozroznia znaki" Podswietla znaleziona fraze podczas szukania i rozroznia znaki
 set hlsearch
 set incsearch
 set ignorecase
