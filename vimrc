@@ -25,7 +25,7 @@ set showcmd
 " niekompatybilny z Vi
 set nocompatible
 
-" ciemne tlo, jasny font
+" ciemne tlo, jasna czcionka
 set background=dark
 
 " unixowy koniec linii
@@ -58,11 +58,6 @@ map <c-h> <c-w>h
 " Wygodniejsze przemieszczanie sie po zakladkach. ",n" (wczesniejsza), ",m" (nastepna).
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
-
-" Linia 80. w kolorze szarym
-set colorcolumn=80
-highlight ColorColumn ctermbg=233
-set tw=79
 
 " Uzywa tylko i wylacznie spacji, zero tabow.
 set tabstop=4
