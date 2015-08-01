@@ -1,0 +1,12 @@
+[user]
+    email = mat@bur.pl
+    name = matbur
+[merge]
+    tool = vimdiff
+[core]
+    editor = vim
+[alias]
+    br = branch
+    ci = commit
+    co = checkout
+    st = status
