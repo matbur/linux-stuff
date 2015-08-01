@@ -1,98 +1,132 @@
-" Automatycznie przeladowywuje plik .vimrc.
+set nocompatible
+
+" Automatically reload .vimrc
 autocmd! bufwritepost .vimrc source %
 
-" automatyczne wciecia
-set autoindent
-set smartindent
-
-" skladnia podswietlana
-syntax on
-
-" pokazywanie polozenia kursora
-set ruler
-set number
-
-" nie lamie lini
-set nowrap
-
-" vim pamieta 1000 ostatnich wyszukiwan i cofa do 1000
+" Sets how many lines of history VIM has to remember
 set history=1000
 set undolevels=1000
 
-" pokazuje wpisywane polecenia
-set showcmd
+" Enable filetype plugins
+filetype plugin on
+filetype indent on
 
-" niekompatybilny z Vi
-set nocompatible
+" Set to auto read when a file is changed from the outside
+set autoread
 
-" ciemne tlo, jasna czcionka
-set background=dark
-
-" unixowy koniec linii
-set ff=unix
-
-" maps
+" Saving & exiting
 map QQ :q!<CR>
 map W :w!<CR>
-
-" Binduje <Leader> do klawisza ','
-let mapleader = ","
-
-" Jezeli wyszukales jakas fraze, to vim ja podkreslil, jesli chcesz pozbyć sie podswietlenia wcisnij CTRL+n.
-noremap <C-n> :nohl<CR>
-vnoremap <C-n> :nohl<CR>
-inoremap <C-n> :nehl<CR>
-
-
-" Szybki zapis pliku, CTRL+z. 
 noremap <C-Z> :update<CR>
 vnoremap <C-Z> <C-C>:update<CR>
 inoremap <C-Z> <C-O>:update<CR>
 
-" Sluzy do wygodniejszego poruszania sie po okienkach. Zamiast wciskania CTRL+w, a poźniej h/j/k/l, wciskasz sobie CTRL+h/j/k/l.
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
+" With a map leader it's possible to do extra key combinations
+let mapleader = ","
+let g:mapleader = ","
 
-" Wygodniejsze przemieszczanie sie po zakladkach. ",n" (wczesniejsza), ",m" (nastepna).
-map <Leader>n <esc>:tabprevious<CR>
-map <Leader>m <esc>:tabnext<CR>
+" Turn on the WiLd menu
+set wildmenu
 
-" Uzywa tylko i wylacznie spacji, zero tabow.
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set shiftround
-set expandtab
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc
 
-" Podswietla znaleziona fraze podczas szukania i rozroznia znaki.
-set hlsearch
-set incsearch
+"Always show current position
+set ruler
+set number
+
+" Searching
 set ignorecase
 set smartcase
+set hlsearch
+set incsearch
 
-" Wylacza pliki backup oraz swap.
+" Enable syntax highlighting
+syntax enable
+
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
+
+" Use Unix as the standard file type
+set ffs=unix,dos,mac
+
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
-set nowritebackup
+set writebackup
 set noswapfile
 
-" Dzieli z prawej i z gory
+" Tab -> 4 spaces
+set expandtab
+set smarttab
+set shiftwidth=4
+set tabstop=4
+
+set autoindent
+set smartindent
+set nowrap
+
+" Treat long lines as break lines (useful when moving around in them)
+map j gj
+map k gk
+
+" Disable highlight when <leader><cr> is pressed
+map <silent> <leader><cr> :noh<cr>
+
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
 set splitright
 set splitbelow
 
+" Useful mappings for managing tabs
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+map <Leader>n <esc>:tabprevious<CR>
+map <Leader>m <esc>:tabnext<CR>
 
-" vim-plug
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+
+" Always show the status line
+set laststatus=2
+
+" Move a line of text using ALT+[jk]
+nmap <M-j> mz:m+<cr>`z
+nmap <M-k> mz:m-2<cr>`z
+vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
+vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Spell checking
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Pressing ,ss will toggle and untoggle spell checking
+map <leader>ss :setlocal spell!<cr>
+
+" Shortcuts using <leader>
+map <leader>sn ]s
+map <leader>sp [s
+map <leader>sa zg
+map <leader>s? z=
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
 Plug 'bling/vim-airline'
-
 Plug 'kien/ctrlp.vim'
-
 Plug 'scrooloose/nerdtree'
-
 Plug 'klen/python-mode'
-
 Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
@@ -100,6 +134,7 @@ call plug#end()
 " nerdtree
 autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd VimEnter * wincmd p
 
 " python-mode
 let g:pymode_run_bind = "<F5>"
