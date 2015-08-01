@@ -9,6 +9,7 @@
     br = branch
     ci = commit
     co = checkout
+    di = diff
     st = status
 [push]
 	default = simple

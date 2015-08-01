@@ -12,8 +12,12 @@ syntax on
 set ruler
 set number
 
-" vim pamieta 50 ostatnich wyszukiwan
-set history=50
+" nie lamie lini
+set nowrap
+
+" vim pamieta 1000 ostatnich wyszukiwan i cofa do 1000
+set history=1000
+set undolevels=1000
 
 " pokazuje wpisywane polecenia
 set showcmd
@@ -58,6 +62,7 @@ map <Leader>m <esc>:tabnext<CR>
 " Linia 80. w kolorze szarym
 set colorcolumn=80
 highlight ColorColumn ctermbg=233
+set tw=79
 
 " Uzywa tylko i wylacznie spacji, zero tabow.
 set tabstop=4
@@ -67,6 +72,7 @@ set shiftround
 set expandtab
 
 " Podswietla znaleziona fraze podczas szukania i rozroznia znaki.
+" Podswietla znaleziona fraze podczas szukania i rozroznia znaki" Podswietla znaleziona fraze podczas szukania i rozroznia znaki" Podswietla znaleziona fraze podczas szukania i rozroznia znaki" Podswietla znaleziona fraze podczas szukania i rozroznia znaki" Podswietla znaleziona fraze podczas szukania i rozroznia znaki" Podswietla znaleziona fraze podczas szukania i rozroznia znaki" Podswietla znaleziona fraze podczas szukania i rozroznia znaki
 set hlsearch
 set incsearch
 set ignorecase
@@ -93,6 +99,8 @@ Plug 'scrooloose/nerdtree'
 
 Plug 'klen/python-mode'
 
+Plug 'scrooloose/nerdcommenter'
+
 call plug#end()
 
 " nerdtree
@@ -100,5 +108,19 @@ autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " python-mode
-" Override run current python file key shortcut to F5
 let g:pymode_run_bind = "<F5>"
+let g:pymode_rope_goto_definition_bind = "<Leader>g"
+set completeopt=longest,menuone
+function! OmniPopup(action)
+    if pumvisible()
+        if a:action == 'j'
+            return "\<C-N>"
+        elseif a:action == 'k'
+            return "\<C-P>"
+        endif
+    endif
+    return a:action
+endfunction
+
+inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
+inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
