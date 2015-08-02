@@ -37,12 +37,12 @@ logging.getLogger('').addHandler(CONSOLE)
 
 def create(directory):
     """ Function create dir """
-    logging.info('Trying to create %s directory', directory)
+    logging.debug('Trying to create %s directory', directory)
 
     try:
         os.mkdir(directory)
     except OSError:
-        logging.info('%s already exists', directory)
+        logging.warning('%s already exists', directory)
     else:
         logging.info('%s created', directory)
 
@@ -53,12 +53,12 @@ def move(dot_files, files):
     for dot_file, _file in zip(dot_files, files):
         old = join(HD, dot_file)
         new = join(DB, _file)
-        logging.info('Trying to move %s -> %s', old, new)
+        logging.debug('Trying to move %s -> %s', old, new)
 
         try:
             os.rename(old, new)
         except OSError:
-            logging.info("%s didn't exist", old)
+            logging.info('%s did not exist', old)
         else:
             logging.info('%s moved', old)
 
@@ -69,14 +69,15 @@ def copy(files, dot_files):
     for _file, dot_file in zip(files, dot_files):
         old = join(WD, _file)
         new = join(HD, dot_file)
-        logging.info('Copying %s -> %s', old, new)
+        logging.debug('Trying to copy %s -> %s', old, new)
 
         shutil.copy(old, new)
+        logging.info('%s copied', old)
 
 
 def remove(directory):
     """ Function removes dir if empty """
-    logging.info('Trying to remove %s', directory)
+    logging.debug('Trying to remove %s', directory)
 
     try:
         os.removedirs(directory)
@@ -88,13 +89,16 @@ def remove(directory):
 
 def download():
     """ Function downloads vim-plug """
-    logging.info('Downloading plug-vim to ~/.vim/autoload')
+    logging.debug('Trying to download plug-vim -> ~/.vim/autoload')
 
     command = "curl -sfLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     call = subprocess.call(command, shell=True)
     if call:
-        logging.error("Couldn't downoload plug.vim")
+        logging.error('Cannot downoload plug.vim')
+    else:
+        logging.info('plug.vim downloaded')
+
     return call
 
 
@@ -120,6 +124,7 @@ def main():
 
     lasts = time.time() - started
     logging.info('All done in %ss', round(lasts, 3))
+    logging.info('For more logs open %s', LOG_FILE)
 
 
 if __name__ == '__main__':
