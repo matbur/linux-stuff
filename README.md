@@ -21,6 +21,5 @@ python linux_stuff/script.py
 - [klen/python-mode](https://github.com/klen/python-mode/blob/develop/README.rst)
 - [junegunn/vim-plug](https://github.com/junegunn/vim-plug/blob/master/README.md)
 - [bling/vim-airline](https://github.com/bling/vim-airline/blob/master/README.md)
-- [klen/python-mode](https://github.com/klen/python-mode/blob/develop/README.rst)
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive/blob/master/README.markdown)
 - [tpope/vim-surround](https://github.com/tpope/vim-surround/blob/master/README.markdown)
