@@ -134,6 +134,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'klen/python-mode'
 Plug 'bling/vim-airline'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -163,4 +164,3 @@ inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 " vim-airline
 let g:airline_theme='wombat'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
