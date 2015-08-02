@@ -38,6 +38,7 @@ logging.getLogger('').addHandler(CONSOLE)
 def create(directory):
     """ Function create dir """
     logging.info('Trying to create %s directory', directory)
+
     try:
         os.mkdir(directory)
     except OSError:
@@ -48,10 +49,12 @@ def create(directory):
 
 def move(dot_files, files):
     """ Function moves files from HD to DB """
+
     for dot_file, _file in zip(dot_files, files):
         old = join(HD, dot_file)
         new = join(DB, _file)
         logging.info('Trying to move %s -> %s', old, new)
+
         try:
             os.rename(old, new)
         except OSError:
@@ -62,16 +65,19 @@ def move(dot_files, files):
 
 def copy(files, dot_files):
     """ Function copies files from WD to HD """
+
     for _file, dot_file in zip(files, dot_files):
         old = join(WD, _file)
         new = join(HD, dot_file)
         logging.info('Copying %s -> %s', old, new)
+
         shutil.copy(old, new)
 
 
 def remove(directory):
     """ Function removes dir if empty """
     logging.info('Trying to remove %s', directory)
+
     try:
         os.removedirs(directory)
     except OSError:
@@ -83,30 +89,37 @@ def remove(directory):
 def download():
     """ Function downloads vim-plug """
     logging.info('Downloading plug-vim to ~/.vim/autoload')
-    command = "curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+
+    command = "curl -sfLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-    os.popen(command)
+    call = subprocess.call(command, shell=True)
+    if call:
+        logging.error("Couldn't downoload plug.vim")
+    return call
 
 
 def install():
     """ Function installs all plugins """
     logging.info('Installing plugins from ~/.vimrc')
-    subprocess.call('nohup vim -c PlugInstall > /dev/null', shell=True)
+
+    subprocess.call('nohup vim -c PlugInstall > /dev/null &', shell=True)
 
 
 def main():
     """ Function makes whole job """
-    t = time.time()
+
+    started = time.time()
     create(DB)
     move(DOT_FILES, FILES)
     copy(FILES, DOT_FILES)
     remove(DB)
 
-    download()
-    install()
+    err = download()
+    if not err:
+        install()
 
-    last = time.time() - t
-    logging.info('All done in %ss', round(last, 3))
+    lasts = time.time() - started
+    logging.info('All done in %ss', round(lasts, 3))
 
 
 if __name__ == '__main__':
