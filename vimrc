@@ -14,6 +14,12 @@ filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 
+" Set lighter font
+set background=dark
+
+" Enable colors
+set t_Co=256
+
 " Saving & exiting
 map QQ :q!<CR>
 map W :w!<CR>
@@ -123,11 +129,11 @@ map <leader>s? z=
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-Plug 'bling/vim-airline'
 Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'klen/python-mode'
-Plug 'scrooloose/nerdcommenter'
+Plug 'bling/vim-airline'
 
 call plug#end()
 
@@ -153,3 +159,8 @@ endfunction
 
 inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
+
+" vim-airline
+let g:airline_theme='wombat'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
