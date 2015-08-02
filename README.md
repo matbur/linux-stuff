@@ -7,9 +7,9 @@
 .gitconfig
 .git-completion.bash
 
-####Instalation vim-plug
+####Usage
 
 ```sh
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+git clone https://github.com/matbur95/linux_stuff.git
+python linux_stuff/script.py
 ```
