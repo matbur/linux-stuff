@@ -135,6 +135,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'klen/python-mode'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
