@@ -136,6 +136,7 @@ Plug 'klen/python-mode'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'fatih/vim-go'
 
 call plug#end()
 

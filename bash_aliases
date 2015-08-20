@@ -1,4 +1,7 @@
-export PS1="\n┌─ \$(if [[ \$? == 0 ]]; then echo \"\[\e[00;32m\][\$?]\"; else echo \"\[\e[00;31m\][\$?]\"; fi)\[\e[0m\] [\t] [\u@ \[\e[00;94m\]\h\[\e[0m\]] [\!] [\w]\n└─ "
+export PS1="\n┌─ $(if [[ $? == 0 ]]; then echo "\[\e[00;32m\][$?]"; else echo "\[\e[00;31m\][$?]"; fi)\[\e[0m\] [\t] [\[\e[00;94m\]\u\[\e[0m\]@\[\e[00;94m\]\h\[\e[0m\]] [\!] [\w]\n└─ "
+function └─() { $@; }
+
+alias py='python'
 
 # INFO =====================
 alias cpu='cat /proc/cpuinfo'
