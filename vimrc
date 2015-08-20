@@ -146,7 +146,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 autocmd VimEnter * wincmd p
 
 " python-mode
-let g:pymode_run_bind = "<F5>"
 let g:pymode_rope_goto_definition_bind = "<Leader>g"
 set completeopt=longest,menuone
 function! OmniPopup(action)
