@@ -1,3 +1,5 @@
+map ! :!<CR>
+
 set nocompatible
 
 " Automatically reload .vimrc
