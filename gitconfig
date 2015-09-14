@@ -13,4 +13,4 @@
     di = diff
     st = status
 [push]
-	default = simple
+	default = matching
