@@ -16,18 +16,12 @@ filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 
-" Set lighter font
-set background=dark
-
 " Enable colors
 set t_Co=256
 
 " Saving & exiting
 map QQ :q!<CR>
 map W :w!<CR>
-noremap <C-Z> :update<CR>
-vnoremap <C-Z> <C-C>:update<CR>
-inoremap <C-Z> <C-O>:update<CR>
 
 " With a map leader it's possible to do extra key combinations
 let mapleader = ","
@@ -143,9 +137,10 @@ Plug 'fatih/vim-go'
 call plug#end()
 
 " nerdtree
-autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd vimenter * NERDTree
 autocmd VimEnter * wincmd p
+map <C-m> :NERDTreeToggle<CR>
 
 " python-mode
 let g:pymode_rope_goto_definition_bind = "<Leader>g"

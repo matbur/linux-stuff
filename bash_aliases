@@ -3,7 +3,15 @@ function └─() { $@; }
 
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
+alias aliases='vim ~/.bash_aliases'
+
 alias py='python'
+alias ptp='ptpython'
+alias pti='ptipython'
+eval $(thefuck --alias)
+
+export JAVA_HOME=/usr/java
+PATH=/usr/java/bin:$PATH
 
 # INFO =====================
 alias cpu='cat /proc/cpuinfo'
