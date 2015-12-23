@@ -66,7 +66,7 @@ alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 
 
 
 # UBUNTU UPGRADE ===========
-alias upgrade='sudo apt-get update && sudo apt-get upgrade && sudo apt-get clean'
+alias upgrade='sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get clean'
 # ==========================
 
 

@@ -106,7 +106,7 @@ def install():
     """ Function installs all plugins """
     logging.info('Installing plugins from ~/.vimrc')
 
-    subprocess.call('nohup vim -c PlugInstall > /dev/null &', shell=True)
+    subprocess.call('nohup vim -c PlugInstall &> /dev/null', shell=True)
 
 
 def main():
