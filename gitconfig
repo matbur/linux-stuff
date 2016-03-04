@@ -12,5 +12,6 @@
     co = checkout
     di = diff
     st = status
+    up = pull
 [push]
 	default = matching
