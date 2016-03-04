@@ -165,3 +165,7 @@ inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 " vim-airline
 let g:airline_theme='wombat'
 let g:airline#extensions#tabline#enabled = 1
+
+set bg=dark
+hi ColorColumn ctermbg=darkgrey
+set cc=80
