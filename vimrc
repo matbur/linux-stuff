@@ -19,6 +19,9 @@ map <F2> :w<CR>:!./%<CR>
 " Set to auto read when a file is changed from the outside
 set autoread
 
+" Change paste mode
+set pastetoggle=<F10>
+
 " Enable colors
 set t_Co=256
 
@@ -140,8 +143,8 @@ Plug 'fatih/vim-go'
 call plug#end()
 
 " nerdtree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd VimEnter * wincmd p
 map <C-m> :NERDTreeToggle<CR>
 
@@ -163,9 +166,12 @@ inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 
 " vim-airline
-let g:airline_theme='wombat'
 let g:airline#extensions#tabline#enabled = 1
 
 set bg=dark
 hi ColorColumn ctermbg=darkgrey
 set cc=80
+
+" asm
+autocmd FileType asm map <F2> :!make<CR>
+autocmd FileType asm map <F3> :!./%:r<CR>
