@@ -135,7 +135,8 @@ Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'klen/python-mode'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'fatih/vim-go'
@@ -146,7 +147,7 @@ call plug#end()
 autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd VimEnter * wincmd p
-map <C-m> :NERDTreeToggle<CR>
+"map <C-m> :NERDTreeToggle<CR>
 
 " python-mode
 let g:pymode_rope_goto_definition_bind = "<Leader>g"
@@ -166,6 +167,7 @@ inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 
 " vim-airline
+let g:airline_theme='wombat'
 let g:airline#extensions#tabline#enabled = 1
 
 set bg=dark
@@ -173,5 +175,5 @@ hi ColorColumn ctermbg=darkgrey
 set cc=80
 
 " asm
-autocmd FileType asm map <F2> :!make<CR>
+autocmd FileType asm map <F2> :w<CR>:!make<CR>
 autocmd FileType asm map <F3> :!./%:r<CR>
