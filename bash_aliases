@@ -10,8 +10,13 @@ alias ptp='ptpython'
 alias pti='ptipython'
 eval $(thefuck --alias)
 
+alias ff='nohup firefox &>/dev/null &'
+lo() { nohup libreoffice "$@" &>/dev/null & }
+ee() { nohup evince "$@" &>/dev/null & }
+
+export EDITOR=vim
 export JAVA_HOME=/usr/java
-PATH=~/bin:/usr/java/bin:$PATH
+export PATH=~/bin:/usr/java/bin:$PATH
 
 # INFO =====================
 alias cpu='cat /proc/cpuinfo'

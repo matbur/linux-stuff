@@ -27,7 +27,7 @@ set t_Co=256
 
 " Saving & exiting
 map QQ :q!<CR>
-map W :w!<CR>
+"map W :w!<CR>
 
 " With a map leader it's possible to do extra key combinations
 let mapleader = ","
@@ -42,6 +42,7 @@ set wildignore=*.o,*~,*.pyc
 "Always show current position
 set ruler
 set number
+set so=4
 
 " Searching
 set ignorecase
@@ -140,6 +141,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'fatih/vim-go'
+Plug 'Shirk/vim-gas'
 
 call plug#end()
 
@@ -177,3 +179,5 @@ set cc=80
 " asm
 autocmd FileType asm map <F2> :w<CR>:!make<CR>
 autocmd FileType asm map <F3> :!./%:r<CR>
+autocmd FileType asm map <F4> :w<CR>:!make debug<CR>
+autocmd FileType asm set ft=gas
