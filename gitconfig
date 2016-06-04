@@ -5,6 +5,7 @@
     tool = vimdiff
 [core]
     editor = vim
+	autocrlf = input
 [alias]
     br = branch
     ci = commit
