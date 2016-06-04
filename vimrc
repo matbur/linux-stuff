@@ -87,8 +87,12 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+"
 set splitright
 set splitbelow
+
+" Underline current line
+set cul
 
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
