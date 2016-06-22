@@ -143,22 +143,21 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/nerdcommenter'
-Plug 'kien/ctrlp.vim'
-Plug 'klen/python-mode'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'klen/python-mode'
 Plug 'fatih/vim-go'
 Plug 'Shirk/vim-gas'
 
 call plug#end()
 
 " vim-airline
-let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='wombat'
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_left_sep = '▸'
 let g:airline_right_sep = '◂'
 
