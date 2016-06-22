@@ -28,7 +28,7 @@ set pastetoggle=<F10>
 set t_Co=256
 
 " Saving & exiting
-map QQ :q!<CR>
+map QQ :q!
 
 " With a map leader it's possible to do extra key combinations
 let mapleader = ","
