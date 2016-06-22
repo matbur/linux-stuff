@@ -144,6 +144,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'scrooloose/nerdcommenter'
 Plug 'kien/ctrlp.vim'
 Plug 'klen/python-mode'
@@ -157,6 +158,8 @@ call plug#end()
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='wombat'
+let g:airline_left_sep = '▸'
+let g:airline_right_sep = '◂'
 
 " nerdtree
 autocmd vimenter * NERDTree
