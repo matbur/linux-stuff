@@ -116,11 +116,11 @@ autocmd BufReadPost *
 " Always show the status line
 set laststatus=2
 
-" Move a line of text using Ctrl+[jk]
-nmap <C-j> mz:m+<cr>`z
-nmap <C-k> mz:m-2<cr>`z
-vmap <C-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <C-k> :m'<-2<cr>`>my`<mzgv`yo`z
+" Move a line of text using <Right Alt>+[jk]
+nmap ə mz:m+<cr>`z
+nmap … mz:m-2<cr>`z
+vmap ə :m'>+<cr>`<my`>mzgv`yo`z
+vmap … :m'<-2<cr>`>my`<mzgv`yo`z
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -160,7 +160,7 @@ let g:airline_theme='wombat'
 
 " nerdtree
 autocmd vimenter * NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR><C-w>l
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd VimEnter * wincmd p
 
