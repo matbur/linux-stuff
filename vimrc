@@ -1,5 +1,7 @@
+" Show console
 map ! :!<CR>
 
+" Enable features from vim
 set nocompatible
 
 " Automatically reload .vimrc
@@ -19,7 +21,7 @@ map <F2> :w<CR>:!./%<CR>
 " Set to auto read when a file is changed from the outside
 set autoread
 
-" Change paste mode
+" Change paste mode (pt)
 set pastetoggle=<F10>
 
 " Enable colors
@@ -27,49 +29,49 @@ set t_Co=256
 
 " Saving & exiting
 map QQ :q!<CR>
-"map W :w!<CR>
 
 " With a map leader it's possible to do extra key combinations
 let mapleader = ","
 let g:mapleader = ","
 
-" Turn on the WiLd menu
+" Turn on the WiLd menu (wmnu)
 set wildmenu
 
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
 
-"Always show current position
+"Always show current position (ru, nu, so)
 set ruler
 set number
-set so=4
+set scrolloff=4
 
-" Searching
+" Searching (ic, scs, hls, is)
 set ignorecase
 set smartcase
 set hlsearch
 set incsearch
 
-" Enable syntax highlighting
+" Enable syntax highlighting (syn)
 syntax enable
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
-" Use Unix as the standard file type
-set ffs=unix,dos,mac
+" Use Unix as the standard file type (ffs)
+set fileformats=unix,dos,mac
 
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
+" Turn backup off, since most stuff is in SVN, git et.c anyway... (bk, wb, swf)
 set nobackup
 set writebackup
 set noswapfile
 
-" Tab -> 4 spaces
+" Tab -> 4 spaces (et, sta, sw, ts)
 set expandtab
 set smarttab
 set shiftwidth=4
 set tabstop=4
 
+" Set indent (ai, si, wrap)
 set autoindent
 set smartindent
 set nowrap
@@ -87,22 +89,25 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-"
+" (spr, sb)
 set splitright
 set splitbelow
 
-" Underline current line
-set cul
+" Underline current line and 80. column (cul, bg, ?, cc)
+set cursorline
+set background=dark
+hi ColorColumn ctermbg=darkgrey
+set colorcolumn=80
 
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
-map <Leader>n <esc>:tabprevious<CR>
-map <Leader>m <esc>:tabnext<CR>
+map <leader>n <esc>:tabprevious<CR>
+map <leader>m <esc>:tabnext<CR>
 
-" Return to last edit position when opening files (You want this!)
+" Return to last edit position when opening files
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
@@ -111,11 +116,11 @@ autocmd BufReadPost *
 " Always show the status line
 set laststatus=2
 
-" Move a line of text using ALT+[jk]
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+" Move a line of text using Ctrl+[jk]
+nmap <C-j> mz:m+<cr>`z
+nmap <C-k> mz:m-2<cr>`z
+vmap <C-j> :m'>+<cr>`<my`>mzgv`yo`z
+vmap <C-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -136,12 +141,12 @@ map <leader>s? z=
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-Plug 'kien/ctrlp.vim'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'klen/python-mode'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'kien/ctrlp.vim'
+Plug 'klen/python-mode'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'fatih/vim-go'
@@ -149,11 +154,15 @@ Plug 'Shirk/vim-gas'
 
 call plug#end()
 
+" vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='wombat'
+
 " nerdtree
 autocmd vimenter * NERDTree
+map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd VimEnter * wincmd p
-"map <C-m> :NERDTreeToggle<CR>
 
 " python-mode
 let g:pymode_rope_goto_definition_bind = "<Leader>g"
@@ -172,16 +181,5 @@ endfunction
 inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 
-" vim-airline
-let g:airline_theme='wombat'
-let g:airline#extensions#tabline#enabled = 1
-
-set bg=dark
-hi ColorColumn ctermbg=darkgrey
-set cc=80
-
 " asm
 autocmd FileType asm map <F2> :w<CR>:!make<CR>
-autocmd FileType asm map <F3> :!./%:r<CR>
-autocmd FileType asm map <F4> :w<CR>:!make debug<CR>
-autocmd FileType asm set ft=gas
