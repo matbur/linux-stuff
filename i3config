@@ -25,6 +25,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+bindsym XF86WakeUp+Shift exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -146,12 +147,9 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        #status_command i3status
+        status_command i3blocks
 }
-
-#bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
-#bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -5%
-#bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
 #####################
 # MY MODIFICATIONS
@@ -165,7 +163,7 @@ exec --no-startup-id keepass2
 #exec --no-startup-id i3-msg 'workspace 10; exec keepass2; workspace 1'
 
 # some custom bindings for locking and volumes
-bindsym Ctrl+Mod1+L exec i3lock
+#bindsym Ctrl+Mod1+L exec i3lock
 
 # default volume handling for sensible systems
 bindsym XF86AudioMute        exec amixer -D pulse set Master toggle
@@ -173,10 +171,22 @@ bindsym XF86AudioRaiseVolume exec amixer -D pulse set Master 3%+ unmute
 bindsym XF86AudioLowerVolume exec amixer -D pulse set Master 3%- unmute
 
 # suspend and hibernate
-bindsym XF86AudioMicMute exec i3exit.sh suspend
-bindsym XF86Launch1      exec i3exit.sh hibernate
+bindsym XF86AudioMicMute exec i3e suspend
+bindsym XF86Launch1      exec i3e hibernate
 
 # screen brightness
-# xbacklight -inc 10
-bindsym $mod+Next exec xbacklight -inc 10
+bindsym $mod+Next  exec xbacklight -inc 10
 bindsym $mod+Prior exec xbacklight -dec 10
+
+# screenshot
+bindsym Print exec scrot -e 'mv $f ~/Pictures/Screenshots'
+
+# font
+font pango:Ubuntu 11px
+
+# external monitor
+#force_xinerama yes
+exec_always --no-startup-id xrandr --output LVDS1 --mode 1366x768
+exec_always --no-startup-id xrandr --output VGA1 --mode 1680x1050 --right-of LVDS1
+#exec_always --no-startup-id xrandr --output LVDS1 --mode 1366x768 --right-of VGA1
+#exec_always --no-startup-id xrandr --output LVDS1 --mode 1366x768
