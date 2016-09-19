@@ -1,4 +1,4 @@
-# linux_stuff
+# linux-stuff
 
 .bashrc
 .bash_aliases
@@ -9,8 +9,8 @@
 
 ## Usage
 ```sh
-git clone https://github.com/matbur95/linux_stuff.git && \
-python linux_stuff/script.py
+git clone https://github.com/matbur95/linux-stuff.git && \
+python linux-stuff/script.py
 ```
 
 ### Vim Plugins
