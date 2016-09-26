@@ -12,6 +12,7 @@
     cl = clone
     co = checkout
     di = diff
+    pu = push
     st = status
     up = pull
 [push]
