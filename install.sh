@@ -5,7 +5,7 @@ function create_ln() {
 }
 
 create_ln .vimrc
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+curl -sfLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 create_ln .bashrc
@@ -17,3 +17,5 @@ create_ln .i3blocks.conf
 create_ln .config/i3/config
 
 create_ln bin
+
+create_ln .ptpython
