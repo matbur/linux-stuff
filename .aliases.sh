@@ -1,25 +1,30 @@
 case "$SHELL" in
-	"/bin/bash")
-export PS1='\n┌─ $(if [[ $? == 0 ]]; then echo "\[\e[00;32m\][$?]"; else echo "\[\e[00;31m\][$?]"; fi)\[\e[0m\] [\t] [\[\e[00;94m\]\u\[\e[0m\]@\[\e[00;94m\]\h\[\e[0m\]] [\!] [\w]\n└─ '
-function └─() { $@; }
-export HISTTIMEFORMAT="%d/%m/%y %T "
+    "/bin/bash")
+        export PS1='\n┌─ $(if [[ $? == 0 ]]; then echo "\[\e[00;32m\][$?]"; else echo "\[\e[00;31m\][$?]"; fi)\[\e[0m\] [\t] [\[\e[00;94m\]\u\[\e[0m\]@\[\e[00;94m\]\h\[\e[0m\]] [\!] [\w]\n└─ '
+        function └─() { $@; }
+        export HISTTIMEFORMAT="%d/%m/%y %T "
 
-# show which commands you use the most
-alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30'
+        # show which commands you use the most
+        alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30'
 
-source ~/.git-completion.bash
-	;;
-"/bin/zsh")
-	;;
+        source ~/.git-completion.bash
+        ;;
+    "/bin/zsh")
+        ;;
 esac
 
+screenfetch
 
 PRIV_ALIASES="~/.priv-aliases.sh"
 if [[ -f "$PRIV_ALIASES" ]]; then
-. ~/.priv-aliases.sh
+    . "$PRIV_ALIASES"
 fi
 
 alias aliases='vim ~/.aliases.sh'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 alias py='python'
 alias py3='python3'
@@ -30,6 +35,7 @@ eval $(thefuck --alias)
 export EDITOR=vim
 export JAVA_HOME=/usr/java
 export PATH=~/bin:/usr/java/bin:$PATH
+export GOPATH=~/programming/go
 
 # INFO =====================
 alias cpu='cat /proc/cpuinfo'
