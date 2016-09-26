@@ -24,3 +24,5 @@ create_ln .config/i3/config
 create_ln_dir bin
 
 create_ln_dir .ptpython
+
+create_ln .img

@@ -200,5 +200,8 @@ bindsym $mod+Prior exec xbacklight -dec 10
 # screenshot
 bindsym Print exec scrot -e 'mv $f ~/Pictures/Screenshots/'
 
+# wallpaper
+exec-always feh --bg-scale ~/.img/wallpaper*
+
 # external monitor
 exec_always --no-startup-id xrandr --output VGA1 --auto --left-of LVDS1
