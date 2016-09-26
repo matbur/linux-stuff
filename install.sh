@@ -11,6 +11,7 @@ curl -sfLo ~/.vim/autoload/plug.vim --create-dirs \
 create_ln .bashrc
 create_ln .zshrc
 create_ln .git-completion.bash
+create_ln .gitconfig
 create_ln .aliases.sh
 
 create_ln .i3blocks.conf
