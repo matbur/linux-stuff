@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 
-DIR=$(realpath $(dirname $0))
+DIR=$(realpath "$(dirname "$0")")
 
 function create_ln() {
-    ln -sfn ${DIR}/$1 ${HOME}/$1
+    ln -sfn "$DIR/$1" "$HOME/$1"
 }
 
 

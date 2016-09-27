@@ -1,6 +1,6 @@
-SHELL=$(ps -h $$ | awk '{print $5}')
+SHELL=$(basename $(ps -h $$ | awk '{print $5}'))
 case "$SHELL" in
-    "bash")
+    bash)
         export PS1='\n┌─ $(if [[ $? == 0 ]]; then echo "\[\e[00;32m\][$?]"; else echo "\[\e[00;31m\][$?]"; fi)\[\e[0m\] [\t] [\[\e[00;94m\]\u\[\e[0m\]@\[\e[00;94m\]\h\[\e[0m\]] [\!] [\w]\n└─ '
         function └─() { $@; }
         export HISTTIMEFORMAT="%d/%m/%y %T "
@@ -10,7 +10,7 @@ case "$SHELL" in
 
         source ~/.git-completion.bash
         ;;
-    "zsh")
+    zsh)
         ;;
 esac
 
