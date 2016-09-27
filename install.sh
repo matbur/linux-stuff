@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 
+
+DIR=$(dirname $0)
+DIR=$PWD
+echo $DIR
+
 function create_ln() {
-    ln -sf ${PWD}/$1 ${HOME}/$1
+    ln -sf ${DIR}/$1 ${HOME}/$1
 }
 
 function create_ln_dir() {
-    ln -sfn ${PWD}/$1 ${HOME}/$1
+    ln -sfn ${DIR}/$1 ${HOME}/$1
 }
 
 create_ln .vimrc
@@ -25,4 +30,4 @@ create_ln_dir bin
 
 create_ln_dir .ptpython
 
-create_ln .img
+create_ln_dir .img

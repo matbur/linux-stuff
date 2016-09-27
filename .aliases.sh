@@ -57,7 +57,8 @@ alias ......='cd ../../../../..'
 
 # show hidden files only
 alias l.='ls -d .* --color=auto'
-alias ll.='ls -Al'
+alias ll.='ls -ld .* --color=auto'
+alias lla='ls -Al'
 
 # list all folders
 alias lf='ls -Gl | grep ^d'
