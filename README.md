@@ -1,17 +1,22 @@
 # linux-stuff
 
-.bashrc
-.bash_aliases
-.vimrc
-.vim/
-.gitconfig
-.git-completion.bash
-
 ## Usage
 ```sh
-git clone https://github.com/matbur95/linux-stuff.git && \
-python linux-stuff/script.py
+git clone https://github.com/matbur95/linux-stuff.git
+./linux-stuff/install.sh
 ```
+
+### Apps
+- i3wm
+- i3blocks
+- rofi
+- ultra-flat-icons
+- lxappearance
+- feh
+- unclutter
+- scrot
+
+- awesome-fonts
 
 ### Vim Plugins
 
