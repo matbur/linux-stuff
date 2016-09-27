@@ -186,8 +186,8 @@ exec --no-startup-id unclutter
 
 # default volume handling for sensible systems
 bindsym XF86AudioMute        exec amixer -D pulse set Master toggle
-bindsym XF86AudioRaiseVolume exec amixer -D pulse set Master 3%+ unmute
-bindsym XF86AudioLowerVolume exec amixer -D pulse set Master 3%- unmute
+bindsym XF86AudioRaiseVolume exec amixer -D pulse set Master 2%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -D pulse set Master 2%- unmute
 
 # suspend and hibernate
 bindsym XF86AudioMicMute exec i3e suspend

@@ -1,17 +1,12 @@
 #!/usr/bin/env bash
 
 
-DIR=$(dirname $0)
-DIR=$PWD
-echo $DIR
+DIR=$(realpath $(dirname $0))
 
 function create_ln() {
-    ln -sf ${DIR}/$1 ${HOME}/$1
-}
-
-function create_ln_dir() {
     ln -sfn ${DIR}/$1 ${HOME}/$1
 }
+
 
 create_ln .vimrc
 curl -sfLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -25,9 +20,10 @@ create_ln .aliases.sh
 
 create_ln .i3blocks.conf
 create_ln .config/i3/config
+create_ln .img
+create_ln .screenlayout
 
-create_ln_dir bin
+create_ln bin
 
-create_ln_dir .ptpython
+create_ln .ptpython
 
-create_ln_dir .img
