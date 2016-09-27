@@ -204,7 +204,7 @@ bindsym Print exec scrot -e 'mv $f ~/Pictures/Screenshots/'
 exec-always feh --bg-scale ~/.img/wallpaper*
 
 # external monitor
-exec_always --no-startup-id xrandr --output VGA1 --auto --left-of LVDS1
+exec_always --no-startup-id ~/.screenlayout/2monitors.sh
 
 
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
