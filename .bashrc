@@ -98,7 +98,7 @@ alias l='ls -CF'
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 ALIASES=~/.aliases.sh
-if [ -f $ALIASES]; then
+if [ -f $ALIASES ]; then
     . $ALIASES
 fi
 
