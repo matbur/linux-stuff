@@ -17,6 +17,7 @@ git clone https://github.com/matbur95/linux-stuff.git
 - scrot
 
 - awesome-fonts
+- arc-theme
 
 ### Vim Plugins
 
