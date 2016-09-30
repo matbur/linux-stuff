@@ -206,6 +206,8 @@ exec-always feh --bg-scale ~/.img/wallpaper*
 # external monitor
 exec_always --no-startup-id ~/.screenlayout/2monitors.sh
 
-
+# Caps Lock notification in i3blocks
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+
+# moving whole workspace
+bindsym $mod+x move workspace to output right
