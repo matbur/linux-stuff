@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Script changes all space sings to an underscore in tree given by <dirname>
+#
+# requirements: tree
+
+
+DIR="$1"
+
+if [[ "$DIR" == "" ]]; then
+    echo "usage: space-remover <dirname>"
+    exit 1
+fi
+
+
+while read fname; do
+    bname="$(basename "$fname")"
+
+    new_fname="${fname// /_}"
+    new_dname="$(dirname "$new_fname")"
+    new_bname="$(basename "$new_fname")"
+
+    if [[ "$bname" != "$new_bname" ]]; then
+        mv "$new_dname/$bname" "$new_fname"
+    fi
+done <<< "$(tree -f "$DIR" | sed 's/.*── //g; $d')"
+
