@@ -36,7 +36,7 @@ eval $(thefuck --alias)
 
 export EDITOR=vim
 export JAVA_HOME=/usr/java
-export PATH=~/bin:/usr/java/bin:$PATH
+export PATH=~/bin:/usr/java/bin:/usr/node/bin:$PATH
 export GOPATH=~/programming/go
 
 # INFO =====================
@@ -57,6 +57,7 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
+alias l='ls -CF'
 # show hidden files only
 alias l.='ls -d .* --color=auto'
 alias ll.='ls -ld .* --color=auto'
