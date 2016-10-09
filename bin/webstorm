@@ -1,2 +1,3 @@
-. ~/.bash_aliases
+#!/bin/bash
+. ~/.aliases.sh
 /usr/webstorm/bin/webstorm.sh

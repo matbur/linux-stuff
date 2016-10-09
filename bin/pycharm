@@ -1,2 +1,2 @@
-. ~/.bash_aliases
+. ~/.aliases.sh
 /usr/pycharm/bin/pycharm.sh
