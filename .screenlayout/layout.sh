@@ -1,2 +1,12 @@
-#!/bin/sh
-xrandr --output VIRTUAL1 --off --output DP3 --off --output DP2 --off --output DP1 --off --output HDMI3 --off --output HDMI2 --off --output HDMI1 --off --output LVDS1 --primary --mode 1366x768 --pos 1680x282 --rotate normal --output VGA1 --mode 1680x1050 --pos 0x0 --rotate normal
+#!/bin/bash
+
+DISP_NUM="$(xrandr | grep "\Wconnected" | wc -l)"
+echo $DISP_NUM
+
+if [[ $DISP_NUM == 1 ]]; then
+    ~/.screenlayout/only-notebook.sh
+else
+    ~/.screenlayout/notebook-and-monitor.sh
+fi
+
+feh --bg-scale ~/.img/wallpaper*

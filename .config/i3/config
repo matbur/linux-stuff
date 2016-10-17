@@ -201,13 +201,19 @@ bindsym $mod+Prior exec xbacklight -dec 10
 bindsym Print exec scrot -e 'mv $f ~/Pictures/Screenshots/'
 
 # wallpaper
-exec feh --bg-scale ~/.img/wallpaper*
+#exec_always feh --bg-scale ~/.img/wallpaper*
 
 # external monitor
-exec_always --no-startup-id ~/.screenlayout/2monitors.sh
+exec_always --no-startup-id ~/.screenlayout/layout.sh
 
 # Caps Lock notification in i3blocks
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 
 # moving whole workspace
 bindsym $mod+x move workspace to output right
+
+# lock screen
+bindsym XF86ScreenSaver exec lock
+
+# screen management
+bindsym XF86Display exec arandr

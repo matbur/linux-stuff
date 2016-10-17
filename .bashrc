@@ -47,12 +47,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
     else
-	color_prompt=
+    color_prompt=
     fi
 fi
 
@@ -112,3 +112,12 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+export PS1='\n┌─ $(if [[ $? == 0 ]]; then echo "\[\e[00;32m\][$?]"; else echo "\[\e[00;31m\][$?]"; fi)\[\e[0m\] [\t] [\[\e[00;94m\]\u\[\e[0m\]@\[\e[00;94m\]\h\[\e[0m\]] [\!] [\w]\n└─ '
+function └─() { $@; }
+export HISTTIMEFORMAT="%d/%m/%y %T "
+
+# show which commands you use the most
+alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30'
+
+source ~/.git-completion.bash
