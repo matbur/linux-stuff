@@ -8,11 +8,13 @@ esac
 
 screenfetch
 
-PRIV_ALIASES="~/.priv-aliases.sh"
-if [[ -f "$PRIV_ALIASES" ]]; then
-    echo priv from aliases
-    . "$PRIV_ALIASES"
-fi
+PRIV_ALIASES="$HOME/.priv-aliases.sh"
+[[ -f "$PRIV_ALIASES" ]] && . "$PRIV_ALIASES"
+
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source /usr/local/bin/virtualenvwrapper.sh
 
 alias aliases='vim ~/.aliases.sh'
 
