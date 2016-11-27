@@ -1,3 +1,4 @@
 #!/bin/bash
 
+. ~/.aliases.sh
 gnome-terminal -e ptipython

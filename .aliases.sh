@@ -25,6 +25,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias o='xdg-open'
 alias n='network'
 alias v='vim'
+alias h='history'
 alias py='python'
 alias py3='python3'
 alias ptp='ptpython'
@@ -79,6 +80,10 @@ alias c='clear'
 
 psgrep() {
     ps axuf | grep -v grep | grep "$@" -i --color=auto;
+}
+
+hgrep() {
+    history | grep -v grep | grep "$@" -i --color=auto;
 }
 
 # UBUNTU UPGRADE ===========

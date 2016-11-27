@@ -199,7 +199,7 @@ bindsym $mod+Next  exec xbacklight -inc 10
 bindsym $mod+Prior exec xbacklight -dec 10
 
 # screenshot
-bindsym Print exec scrot -e 'mv $f ~/Pictures/Screenshots/'
+bindsym Print exec screenshot
 
 # wallpaper
 #exec_always feh --bg-scale ~/.img/wallpaper*
@@ -218,3 +218,6 @@ bindsym XF86ScreenSaver exec lock
 
 # screen management
 bindsym XF86Display exec arandr
+
+# shortcuts
+bindsym $mod+n exec nautilus
