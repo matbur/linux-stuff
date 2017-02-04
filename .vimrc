@@ -161,6 +161,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_left_sep = '▸'
 let g:airline_right_sep = '◂'
 
+let g:airline_section_z = '%b 0x%B :%3p%% %#__accent_bold#%{g:airline_symbols.linenr}%#__accent_bold#%4l%#__restore__#%#__restore__#%#__accent_bold#%#__accent_bold#/%L%{g:airline_symbols.maxlinenr} %#__restore__#%#__restore__# :%3v'
+
 " nerdtree
 autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR><C-w>l
@@ -183,6 +185,3 @@ endfunction
 
 inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
-
-" asm
-autocmd FileType asm map <F2> :w<CR>:!make<CR>

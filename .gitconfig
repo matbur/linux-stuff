@@ -17,3 +17,5 @@
     up = pull
 [push]
 	default = matching
+[credential]
+	helper = cache

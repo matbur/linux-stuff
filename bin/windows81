@@ -1,0 +1,3 @@
+#!/bin/bash
+
+virtualbox ~/VirtualBox\ VMs/win81/win81.vbox
