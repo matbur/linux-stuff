@@ -15,6 +15,7 @@ git clone https://github.com/matbur95/linux-stuff.git
 - feh
 - unclutter
 - scrot
+- arandr
 
 - awesome-fonts
 - arc-theme
