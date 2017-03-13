@@ -151,7 +151,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'klen/python-mode'
 Plug 'fatih/vim-go'
-Plug 'Shirk/vim-gas'
+Plug 'dodie/vim-disapprove-deep-indentation'
+Plug 'leafgarland/typescript-vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
@@ -185,3 +187,7 @@ endfunction
 
 inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
+
+" dodie/vim-disapprove-deep-indentation
+let g:LookOfDisapprovalTabTreshold=5
+let g:LookOfDisapprovalSpaceTreshold=(&tabstop*5)

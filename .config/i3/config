@@ -180,7 +180,7 @@ bar {
 # Autostart
 # wifi applet
 exec --no-startup-id nm-applet
-exec --no-startup-id redshift-gtk || redshift-gtk -l 51:17
+exec --no-startup-id redshift-gtk -l 51:17
 exec --no-startup-id dropbox start
 exec --no-startup-id keepass2
 exec --no-startup-id unclutter
