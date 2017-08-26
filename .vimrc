@@ -149,11 +149,14 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'klen/python-mode'
+"Plug 'klen/python-mode'
 Plug 'fatih/vim-go'
 Plug 'dodie/vim-disapprove-deep-indentation'
 Plug 'leafgarland/typescript-vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mxw/vim-jsx'
+Plug 'c.vim'
+Plug 'adimit/prolog.vim'
 
 call plug#end()
 
@@ -172,18 +175,18 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 autocmd VimEnter * wincmd p
 
 " python-mode
-let g:pymode_rope_goto_definition_bind = "<Leader>g"
-set completeopt=longest,menuone
-function! OmniPopup(action)
-    if pumvisible()
-        if a:action == 'j'
-            return "\<C-N>"
-        elseif a:action == 'k'
-            return "\<C-P>"
-        endif
-    endif
-    return a:action
-endfunction
+"let g:pymode_rope_goto_definition_bind = "<Leader>g"
+"set completeopt=longest,menuone
+"function! OmniPopup(action)
+"    if pumvisible()
+"        if a:action == 'j'
+"            return "\<C-N>"
+"        elseif a:action == 'k'
+"            return "\<C-P>"
+"        endif
+"    endif
+"    return a:action
+"endfunction
 
 inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
@@ -191,3 +194,7 @@ inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 " dodie/vim-disapprove-deep-indentation
 let g:LookOfDisapprovalTabTreshold=5
 let g:LookOfDisapprovalSpaceTreshold=(&tabstop*5)
+
+" jsx
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+let g:syntastic_javascript_checkers = ['eslint']

@@ -11,7 +11,7 @@ fi
 
 echo "FILE: $FILE"
 
-ENCODING=$(chardet "$FILE" | cut -d\  -f 2)
+ENCODING=$(chardetect "$FILE" | cut -d' ' -f 2)
 #ENCODING=$(chardet "$FILE" | sed -r 's|.*:\s+(.+)\s+\(.*|\1|')
 echo "ENCODING: $ENCODING"
 

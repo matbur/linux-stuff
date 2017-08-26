@@ -182,9 +182,9 @@ bar {
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk -l 51:17
 exec --no-startup-id dropbox start
-exec --no-startup-id keepass2
+exec --no-startup-id keepass
 exec --no-startup-id unclutter
-exec  --no-startup-id ~/bin/toolbox
+exec  --no-startup-id jetbrains-toolbox
 
 # default volume handling for sensible systems
 bindsym XF86AudioMute        exec amixer -D pulse set Master toggle

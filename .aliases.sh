@@ -14,7 +14,7 @@ PRIV_ALIASES="$HOME/.priv-aliases.sh"
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source /usr/local/bin/virtualenvwrapper.sh
+source /usr/bin/virtualenvwrapper.sh
 
 alias aliases='vim ~/.aliases.sh'
 
@@ -28,13 +28,14 @@ alias v='vim'
 alias h='history'
 alias py='python'
 alias py3='python3'
+alias py2='python2'
 alias ptp='ptpython'
 alias pti='ptipython'
+alias wo='workon'
 eval $(thefuck --alias)
 
 export EDITOR=vim
-export JAVA_HOME=/usr/java
-export PATH=~/bin:/usr/java/bin:/usr/node/bin:$PATH
+export PATH=~/bin:$PATH
 export GOPATH=~/programming/go
 
 # INFO =====================
