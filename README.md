@@ -16,6 +16,16 @@ git clone https://github.com/matbur95/linux-stuff.git
 - unclutter
 - scrot
 - arandr
+- sysstat
+- acpi
+- dropbox
+- jetbrains-toolbox
+- docker
+- vim
+- tree
+- htop
+- gimp
+- virtualbox
 
 - awesome-fonts
 - arc-theme
