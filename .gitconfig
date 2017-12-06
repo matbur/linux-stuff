@@ -1,11 +1,11 @@
 [user]
     email = mateusz@burniak.pl
-    name = matbur95
+    name = matbur
 [merge]
     tool = vimdiff
 [core]
     editor = vim
-	autocrlf = input
+    autocrlf = input
 [alias]
     br = branch
     ci = commit
@@ -16,6 +16,6 @@
     st = status
     up = pull
 [push]
-	default = matching
+    default = matching
 [credential]
-	helper = cache
+    helper = cache
