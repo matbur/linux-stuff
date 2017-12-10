@@ -155,7 +155,6 @@ Plug 'dodie/vim-disapprove-deep-indentation'
 Plug 'leafgarland/typescript-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mxw/vim-jsx'
-Plug 'c.vim'
 Plug 'adimit/prolog.vim'
 
 call plug#end()
