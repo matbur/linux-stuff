@@ -1,9 +1,0 @@
-#!/bin/bash
-
-
-TLDR=/usr/bin/tldr
-
-case "$1" in
-    init|locate|reindex|update|"") $TLDR $*;;
-    *) $TLDR find $*;;
-esac
