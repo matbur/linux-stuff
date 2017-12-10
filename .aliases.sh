@@ -35,7 +35,7 @@ alias wo='workon'
 eval $(thefuck --alias)
 
 export EDITOR=vim
-export PATH=~/bin:$PATH
+export PATH=~/bin:~/programming/go/bin:$PATH
 export GOPATH=~/programming/go
 
 # INFO =====================
