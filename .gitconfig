@@ -12,10 +12,16 @@
     cl = clone
     co = checkout
     di = diff
+    l = log --oneline --decorate --all --graph
     pu = push
+    s = status -s
     st = status
     up = pull
 [push]
-    default = matching
+    default = simple
 [credential]
     helper = cache
+[pull]
+    rebase = true
+[rerere]
+    enabled = true
