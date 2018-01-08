@@ -1,4 +1,8 @@
-SHELL=$(basename $(ps -h $$ | awk '{print $5}'))
+export EDITOR=vim
+export GOPATH=~/programming/go
+export PATH=~/bin:$GOPATH/bin:$PATH
+
+SHELL=$(basename $(ps -h $$ | awk '{print $5}') 2>/dev/null)
 case "$SHELL" in
     bash)
         ;;
@@ -33,10 +37,6 @@ alias ptp='ptpython'
 alias pti='ptipython'
 alias wo='workon'
 eval $(thefuck --alias)
-
-export EDITOR=vim
-export PATH=~/bin:~/programming/go/bin:$PATH
-export GOPATH=~/programming/go
 
 # INFO =====================
 alias cpu='cat /proc/cpuinfo'
