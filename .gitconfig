@@ -6,6 +6,7 @@
 [core]
     editor = vim
     autocrlf = input
+    excludesfile = /Users/mburniak/.gitignore
 [alias]
     br = branch
     ci = commit
@@ -17,6 +18,7 @@
     s = status -s
     st = status
     up = pull
+    fzf = !git checkout $(git branch | fzf)
 [push]
     default = simple
 [credential]
@@ -25,3 +27,8 @@
     rebase = true
 [rerere]
     enabled = true
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
